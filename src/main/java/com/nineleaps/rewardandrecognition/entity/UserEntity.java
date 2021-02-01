@@ -2,6 +2,7 @@ package com.nineleaps.rewardandrecognition.entity;
 
 //import jdk.nashorn.internal.objects.annotations.Getter;
 //import jdk.nashorn.internal.objects.annotations.Setter;
+
 import lombok.Getter;
 import lombok.Setter;
 
