@@ -8,16 +8,11 @@ import org.springframework.context.annotation.ComponentScan;
 
 
 @SpringBootApplication
-@EnableAutoConfiguration(exclude = {ErrorMvcAutoConfiguration.class})
-@ComponentScan(basePackages={"com.nineleaps.rewardandrecognition.controller"})
-
+@ComponentScan(basePackages={"com.nineleaps"})
 public class RewardsAndRecognition {
 
     public static void main(String[] args) {
 
         SpringApplication.run(RewardsAndRecognition.class, args);
-       // try {} catch (Exception e) {
-         //   e.printStackTrace();
-        //}
     }
 }

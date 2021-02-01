@@ -1,8 +1,6 @@
 
 package com.nineleaps.rewardandrecognition.config;
 
-import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
-import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import springfox.documentation.builders.PathSelectors;
@@ -11,19 +9,16 @@ import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
-@ConfigurationProperties("swagger")
-@ConditionalOnProperty(
-        name = {"swagger.enable"},
-        havingValue = "true",
-        matchIfMissing = false
-)
 @EnableSwagger2
 @Configuration
 public class SwaggerConfig {
 
-
     @Bean
     public Docket productAPI() {
-        return (new Docket(DocumentationType.SWAGGER_2)).select().apis(RequestHandlerSelectors.basePackage("com.nineleaps.rewardandrecognition")).paths(PathSelectors.any()).build();
+        return (new Docket(DocumentationType.SWAGGER_2))
+                .select()
+                .apis(RequestHandlerSelectors.basePackage("com.nineleaps.rewardandrecognition"))
+                .paths(PathSelectors.any())
+                .build();
     }
 }
