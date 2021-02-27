@@ -13,11 +13,11 @@ import org.springframework.stereotype.Service;
 public class UserServiceImpl implements UserService {
 
     private final UserEntityRepository userEntityRepository;
-
     @Autowired
     public UserServiceImpl(UserEntityRepository repository) {
         userEntityRepository = repository;
     }
+
 
     @Override
     public UserDto getUser(String email) {
@@ -25,4 +25,7 @@ public class UserServiceImpl implements UserService {
                 .orElseThrow(() -> new NotFoundException("User Not Found"));
         return DtoUtil.convertByCopy(entity, UserDto.class);
     }
+
+
+
 }

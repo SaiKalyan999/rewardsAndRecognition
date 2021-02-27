@@ -22,4 +22,7 @@ public class UserController {
     public UserDto getUser(@PathVariable String id) {
         return userService.getUser(id);
     }
+
+
+
 }
