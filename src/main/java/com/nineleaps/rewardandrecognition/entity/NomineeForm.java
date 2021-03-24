@@ -1,49 +1,50 @@
 package com.nineleaps.rewardandrecognition.entity;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
-import java.util.Date;
 import java.util.UUID;
 
 @Getter
 @Setter
+@AllArgsConstructor
+@NoArgsConstructor
 
 @Entity
 @Table(name = "NomineeForm")
 
 public class NomineeForm extends Aggregate {
 
-
-    @ManyToOne
-    @JoinColumn(name = "award_type_id", referencedColumnName = "id")
+    @Getter(AccessLevel.NONE)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "award_type_id",insertable = false, updatable = false, referencedColumnName = "id")
     @OnDelete(action = OnDeleteAction.CASCADE)
     private AwardType awardType;
 
-    @ManyToOne
-    @JoinColumn(name = "project_id", referencedColumnName = "id")
+    @Getter(AccessLevel.NONE)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "project_id",insertable = false, updatable = false, referencedColumnName = "id")
     @OnDelete(action = OnDeleteAction.CASCADE)
     private Project project;
 
+    @Getter(AccessLevel.NONE)
     @ManyToOne
-    @JoinColumn(name = "manager_id", referencedColumnName = "id")
+    @JoinColumn(name = "manager_id",insertable = false, updatable = false,referencedColumnName = "id")
     @OnDelete(action = OnDeleteAction.CASCADE)
     private UserEntity userEntity;
 
-    @ManyToOne
-    @JoinColumn(name = "nominee_id", referencedColumnName = "id")
+    @Getter(AccessLevel.NONE)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "nominee_id",insertable = false, updatable = false, referencedColumnName = "id")
     @OnDelete(action = OnDeleteAction.CASCADE)
     private UserEntity userEntityNominee;
 
 
 
-    @Column(name = "EntityID", nullable = false)
-    private String entity_id;
 
-    @Column(name = "Comments", nullable = false)
+    @Column(name = "Comments")
     private String comments;
 
     @Column(name = "Month", nullable = false)
@@ -52,8 +53,22 @@ public class NomineeForm extends Aggregate {
     @Column(name = "Year", nullable = false)
     private String year;
 
+    @Column(name= "manager_id", nullable = false)
+    private UUID managerId;
 
-    public NomineeForm(UUID id, String created_by, String modified_by, Date created_date, Date last_modified_date, Boolean soft_delete) {
-        super(id, created_by, modified_by, created_date, last_modified_date, soft_delete);
-    }
+    @Column(name= "nominee_id")
+    private UUID nomineeId;
+
+    @Column(name= "award_type_id")
+    private UUID awardTypeId;
+
+    @Column(name= "project_id")
+    private UUID projectId;
+
+    @Column(name=" is_submitted")
+    private Boolean isSubmitted;
+
+
+
+
 }

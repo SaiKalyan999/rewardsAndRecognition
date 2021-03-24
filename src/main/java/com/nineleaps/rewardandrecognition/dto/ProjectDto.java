@@ -1,10 +1,17 @@
 package com.nineleaps.rewardandrecognition.dto;
 
+import lombok.Getter;
+import lombok.Setter;
+
+import java.util.UUID;
+
+@Getter
+@Setter
 public class ProjectDto {
-    private long id;
-    private String name;
-    private String manager_id;
-    private String Client_id;
+    private String projectName;
+    private UUID clientId;
+    private UUID managerId;
+
 
 
 }

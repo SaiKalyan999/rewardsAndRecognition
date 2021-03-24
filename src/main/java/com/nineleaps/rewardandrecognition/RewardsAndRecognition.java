@@ -1,11 +1,13 @@
 package com.nineleaps.rewardandrecognition;
 
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration;
 import org.springframework.context.annotation.ComponentScan;
 
+@SpringBootApplication(exclude = {UserDetailsServiceAutoConfiguration.class})
 
-@SpringBootApplication
 @ComponentScan(basePackages = {"com.nineleaps"})
 public class RewardsAndRecognition {
 
@@ -13,4 +15,12 @@ public class RewardsAndRecognition {
 
         SpringApplication.run(RewardsAndRecognition.class, args);
     }
+
+
+
+
+
+
+
+
 }

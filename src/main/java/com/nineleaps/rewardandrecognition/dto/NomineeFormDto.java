@@ -1,14 +1,28 @@
 package com.nineleaps.rewardandrecognition.dto;
 
+
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+
+
+import java.util.UUID;
+@Getter
+@NoArgsConstructor
 public class NomineeFormDto {
-    private long id;
-    private String manager_id;
-    private String entity_id;
+    private UUID id;
+    private String year;
     private String name;
-    private String project_id;
     private String comments;
     private String month;
-    private String year;
+    private UUID managerId;
+    private UUID projectId;
+    private UUID awardTypeId;
+    private UUID nomineeId;
+    private String createdBy;
+    private String modifiedBy;
+
+
+
 
 
 }

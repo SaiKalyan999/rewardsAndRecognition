@@ -1,15 +1,21 @@
 package com.nineleaps.rewardandrecognition.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import java.util.Date;
 import java.util.List;
-import java.util.UUID;
 
 @Getter
 @Setter
+@AllArgsConstructor
+@NoArgsConstructor
 
 @Entity
 @Table(name = "Client")
@@ -20,20 +26,20 @@ public class Client extends Aggregate {
     private List<Project> project;
 
 
+
+
     @Column(name = "ClientName", nullable = false)
-    private String client_name;
+    private String clientName;
 
     @Column(name = "ClientLocation", nullable = false)
-    private String client_location;
+    private String clientLocation;
 
     @Column(name = "StartedWorkingFrom", nullable = false)
-    private Date started_working_from;
+    private Date startedWorkingFrom;
 
     @Column(name = "WorkedTill", nullable = true)
-    private Date worked_till;
+    private Date workedTill;
 
 
-    public Client(UUID id, String created_by, String modified_by, Date created_date, Date last_modified_date, Boolean soft_delete) {
-        super(id, created_by, modified_by, created_date, last_modified_date, soft_delete);
-    }
+
 }
